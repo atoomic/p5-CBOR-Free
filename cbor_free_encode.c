@@ -194,6 +194,9 @@ void _encode( pTHX_ SV *value, encode_ctx *encode_state ) {
         _croak_encode( encode_state, NULL );
     }
 
+    if (value == NULL)
+        value = &PL_sv_undef;
+
     if (!SvROK(value)) {
 
         if (SvIOK(value)) {
